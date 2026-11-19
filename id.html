@@ -410,7 +410,9 @@
             requestAnimationFrame(animate);
             const time = Date.now() * 0.001;
             const speed = 0.08;
-            const handRotY = (handX - 0.5) * 4.0;
+            // Chỉ cần di tay trong vùng giữa khung hình (15% - 85%) là xoay đủ 1 vòng (±180°)
+            const handNorm = Math.max(-1, Math.min(1, (handX - 0.5) / 0.35));
+            const handRotY = handNorm * Math.PI;
 
             updateParticleGroup(groupGold, 'gold', state, speed, handRotY, time);
             updateParticleGroup(groupRed, 'red', state, speed, handRotY, time);

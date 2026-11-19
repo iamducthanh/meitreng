@@ -55,11 +55,11 @@
 <body>
     <div id="error-log"></div>
     <div id="ui-layer">
-        <div id="status" class="badge">🎄 Giang Sinh An Lanh 🎄</div>
+        <div id="status" class="badge">🎄 Giang Sinh An Lanh MeiCheng 🎄</div>
         <div class="guide">
-            🖐 <b>Xòe:</b> Bung Quà & Đèn &nbsp;|&nbsp; 👌 <b>Pinch:</b> Xem ảnh &nbsp;|&nbsp; ✊ <b>Nắm:</b> Thu cây
+            <!-- 🖐 <b>Xòe:</b> Bung Quà & Đèn &nbsp;|&nbsp; 👌 <b>Pinch:</b> Xem ảnh &nbsp;|&nbsp; ✊ <b>Nắm:</b> Thu cây -->
         </div>
-        <button id="btnStart" onclick="startSystem()">BẮT ĐẦU</button>
+        <button id="btnStart" onclick="startSystem()">NHÀO ZÔ</button>
     </div>
 
     <div id="canvas-container"></div>
@@ -258,7 +258,7 @@
             ctx.font = 'bold italic 90px "Times New Roman"';
             ctx.fillStyle = '#FFD700'; ctx.textAlign = 'center';
             ctx.shadowColor = "#FF0000"; ctx.shadowBlur = 40; 
-            ctx.fillText("MERRY CHRISTMAS", 512, 130);
+            ctx.fillText("MERRY CHRISTMAS MEICHENG", 512, 130);
             
             const tex = new THREE.CanvasTexture(canvas);
             const mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, blending: THREE.AdditiveBlending });

@@ -44,7 +44,7 @@
 
         #camera-preview {
             position: absolute; top: 15px; right: 15px;
-            width: 120px; height: 90px;
+            width: 240px; height: 180px;
             border: 2px solid rgba(255,0,0,0.5); 
             transform: scaleX(-1); opacity: 0.6; border-radius: 8px;
         }
@@ -64,7 +64,7 @@
 
     <div id="canvas-container"></div>
     <video class="input_video" style="display:none"></video>
-    <canvas id="camera-preview"></canvas>
+    <canvas id="camera-preview" width="320" height="240"></canvas>
 
     <script>
         // ==========================================
@@ -399,7 +399,7 @@
             hands.setOptions({ maxNumHands: 1, modelComplexity: 0, minDetectionConfidence: 0.5, minTrackingConfidence: 0.5 });
 
             hands.onResults(results => {
-                ctx.clearRect(0,0,100,75); ctx.drawImage(results.image, 0, 0, 100, 75);
+                ctx.clearRect(0,0,canvas.width,canvas.height); ctx.drawImage(results.image, 0, 0, canvas.width, canvas.height);
 
                 if(results.multiHandLandmarks.length > 0) {
                     const lm = results.multiHandLandmarks[0];
@@ -414,13 +414,13 @@
 
                     if (avgDist < 0.25) { 
                         state = 'TREE'; 
-                        statusDiv.innerText = "✊ Thu Cây Thông"; statusDiv.style.color = "#FFD700";
+                        statusDiv.innerText = ""; statusDiv.style.color = "#FFD700";
                     } else if (pinchDist < 0.05) {
                         state = 'PHOTO';
-                        statusDiv.innerText = "👌 Xem Ảnh"; statusDiv.style.color = "#00FFFF";
+                        statusDiv.innerText = ""; statusDiv.style.color = "#00FFFF";
                     } else {
                         state = 'EXPLODE'; 
-                        statusDiv.innerText = "🖐 Bung Quà & Ảnh"; statusDiv.style.color = "#FFA500";
+                        statusDiv.innerText = ""; statusDiv.style.color = "#FFA500";
                     }
                 } else {
                     state = 'TREE'; 
